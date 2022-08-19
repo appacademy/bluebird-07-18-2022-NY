@@ -40,5 +40,34 @@ class Chirp < ApplicationRecord
         primary_key: :id,
         foreign_key: :chirp_id,
         class_name: :Like
+
+    has_many :likers,
+        through: :likes,
+        source: :liker
+
+    def self.bad_see_chirp_authors # n + 1
+        chirps = Chirp.all # 1 query
+        chirps.each do |chirp|
+            chirp.author # n queries
+        end
+    end
+
+    def self.good_see_chirp_authors # More efficient, using .includes
+        chirps = Chirp.all.includes(:author)
+        chirps.each do |chirp|
+            chirp.author
+        end
+    end
+
+    def self.see_chirp_num_likes # using Joins method
+        chirps = Chirp
+            .select('chirps.*, COUNT(*) as num_likes')
+            .joins(:likes)
+            .group(:id)
+
+        chirps.each do |chirp|
+            p chirp.num_likes
+        end
+    end
     
 end
