@@ -29,5 +29,7 @@ group :development do
   # gem "spring"
   gem 'annotate' # for annotating our models
   gem 'pry-rails'
+  gem 'better_errors' # Will give us nice formatted errors 
+  gem 'binding_of_caller' # Will allow us to poke around our code at the time it broke
 end
 
