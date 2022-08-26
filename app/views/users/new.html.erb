@@ -1,0 +1,23 @@
+<h1>Hi from new.html.erb</h1>
+
+<!-- <form action="<%# users_url %>" method="POST">
+    <label for="username">Username:</label>
+    <input id="username" type="text" name="user[username]" value="<%# @user.username %>">
+    <br>
+    <label> Password:
+        <input type="password" name="user[password]" value="<%# @user.password %>">
+    </label>
+    <br>
+    <label> Email:
+        <input type="text" name="user[email]" value="<%# @user.email %>">
+    </label>
+    <br>
+    <label> Age:
+        <input type="text" name="user[age]" value="<%# @user.age %>">
+    </label>
+    <br>
+    <input type="submit" value="Create User">
+
+</form> -->
+
+<%= render 'form', user: @user, type: :new %>

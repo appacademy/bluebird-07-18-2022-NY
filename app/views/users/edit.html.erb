@@ -1,0 +1,20 @@
+<h1>Hi from edit.html.erb</h1>
+
+<!-- <form action="<%# user_url(@user) %>" method="post">
+    <input type="hidden" name="_method" value="PATCH">
+    <label for="username">Username:
+      <input id="username" type="text" name="user[username]" value="<%# @user.username %>">
+    </label>
+    <br>
+    <label for="age">Age:
+      <input id="age" type="text" name="user[age]" value="<%# @user.age %>">
+    </label>
+    <br>
+    <label for="email">Email:
+      <input id="email" type="text" name="user[email]" value="<%# @user.email %>">
+    </label>
+    <br>
+    <input type="submit" value="Update User">
+</form> -->
+
+<%= render 'form', user: @user, type: :edit %>

@@ -17,5 +17,5 @@ Rails.application.routes.draw do
   # resources :chirps, except: [:new, :edit] # same as above
 
   resources :chirps # create all 7 routes, including the :new and :edit
-  resources :users, only: [:index, :show, :create, :update, :destroy] # routes for users
+  resources :users, only: [:index, :show, :create, :edit, :new, :update, :destroy] # routes for users
 end

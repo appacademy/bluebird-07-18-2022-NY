@@ -1,0 +1,15 @@
+<h1>Hi from index.html.erb</h1>
+
+<h1>Here are all of our users!</h1>
+
+<ul>
+    <% @users.each do |user| %>
+        <!-- <div><%= user.id %></div>
+        <li><%= user.username %></li>
+        <li><%= user.age %></li>
+        <li><%= user.email %></li>
+        <br>
+        -->
+        <%= render 'user', user: user, action: :index %>
+    <% end %>
+</ul>
