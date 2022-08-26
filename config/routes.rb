@@ -13,8 +13,9 @@ Rails.application.routes.draw do
   # delete '/chirps/:id', to: 'chirps#destroy'
 
   # --- Shortcut for defining multiple routes with aliases: ---
-  resources :chirps, only: [:index, :show, :create, :update, :destroy]
+  # resources :chirps, only: [:index, :show, :create, :update, :destroy]
   # resources :chirps, except: [:new, :edit] # same as above
 
-  # resources :chirps # create all 7 routes
+  resources :chirps # create all 7 routes, including the :new and :edit
+  resources :users, only: [:index, :show, :create, :update, :destroy] # routes for users
 end
