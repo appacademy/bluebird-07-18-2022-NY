@@ -8,8 +8,10 @@
 #  created_at            :datetime         not null
 #  updated_at            :datetime         not null
 #  age                   :integer          not null
-#  political_affiliation :string           not null
 #  password              :string           not null
+#  political_affiliation :string
+#  password_digest       :string           not null
+#  session_token         :string           not null
 #
 class User < ApplicationRecord
     validates :username, :email, presence: true, uniqueness: true
