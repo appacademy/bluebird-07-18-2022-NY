@@ -25,6 +25,7 @@ valerie = User.create!(
   password: "starwars",
   age: 30, 
   political_affiliation: "Ruby"
+
 )
 
 daniel = User.create!(

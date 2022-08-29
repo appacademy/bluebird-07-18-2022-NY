@@ -18,4 +18,6 @@ Rails.application.routes.draw do
 
   resources :chirps # create all 7 routes, including the :new and :edit
   resources :users, only: [:index, :show, :create, :edit, :new, :update, :destroy] # routes for users
+
+  resource :session, only: [:new, :create, :destroy]
 end
