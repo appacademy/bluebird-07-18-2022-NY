@@ -22,8 +22,8 @@ class UsersController < ApplicationController
         if @user.save
             redirect_to user_url(@user)
         else
-            # render json: @user.errors.full_messages, status: 422
-            render :new
+            render json: @user.errors.full_messages, status: 422
+            # render :new
         end
     end
 
@@ -39,8 +39,8 @@ class UsersController < ApplicationController
         if @user.update(user_params)
             redirect_to user_url(@user)
         else
-            # render json: @user.errors.full_messages, status: 422
-            render :edit
+            render json: @user.errors.full_messages, status: 422
+            # render :edit
         end
     end
 
