@@ -13,7 +13,7 @@ class ChirpsController < ApplicationController
     end
 
     def create
-        debugger
+        # debugger
         @chirp = Chirp.new(chirp_params)
         # we don't want to immediately save the chirp to the database with 
         # create, because we want to be in control of what happens if it 
@@ -22,7 +22,7 @@ class ChirpsController < ApplicationController
 
         # need to add the below line so we can create a chirp 
         # (we'll first get an error without it)
-        @chirp.author = User.first # temporary fix until we have the notion of 
+        @chirp.author = current_user # temporary fix until we have the notion of 
         # a current_user. @chirp.author_id = User.first.id is equivalent
 
         if @chirp.save

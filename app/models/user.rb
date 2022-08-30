@@ -35,26 +35,31 @@ class User < ApplicationRecord
     end
 
     def password=(password)
+        # debugger
         self.password_digest = BCrypt::Password.create(password)
         @password = password
     end
 
     def is_password?(password)
+        # debugger
         password_object = BCrypt::Password.new(self.password_digest)
         password_object.is_password?(password)
     end
 
     def reset_session_token!
+        # debugger
         self.session_token = generate_unique_session_token
         self.save!
         self.session_token
     end
 
     def ensure_session_token
+        # debugger
         self.session_token ||= generate_unique_session_token
     end
 
     def generate_unique_session_token
+        # debugger
         token = SecureRandom::urlsafe_base64
 
         while User.exists?(session_token: token)

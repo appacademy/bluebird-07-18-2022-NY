@@ -9,6 +9,7 @@
   <a href="<%= users_url %>">User's Index</a>
 
   <form action="<%= action_url %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>"/>
     <% if type == :edit %>
       <input type="hidden" name="_method" value="PATCH" />
     <% end %>
