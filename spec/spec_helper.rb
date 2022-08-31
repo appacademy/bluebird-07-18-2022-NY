@@ -44,6 +44,19 @@ RSpec.configure do |config|
   # triggering implicit auto-inclusion in groups with matching metadata.
   config.shared_context_metadata_behavior = :apply_to_host_groups
 
+  def log_in_user(user)
+    visit new_session_url
+    fill_in('Username:', with: "#{user.username}")
+    fill_in('Password:', with: 'password')
+    click_button('Login')
+  end
+
+  def make_chirp(body)
+    visit new_chirp_url
+    fill_in('Body:', with: "#{body}")
+    click_button("Create a Chirp")
+  end
+
 # The settings below are suggested to provide a good initial experience
 # with RSpec, but feel free to customize to your heart's content.
 =begin

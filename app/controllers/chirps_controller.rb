@@ -3,13 +3,18 @@ class ChirpsController < ApplicationController
     def index
         # debugger
         @chirps = Chirp.all # fetch all the chirps
-        render json: @chirps # render the chirps in the body of the response (as JSON)
+        # render json: @chirps # render the chirps in the body of the response (as JSON)
+        render :index
     end
 
     def show
         # debugger
         @chirp = Chirp.find(params[:id])
-        render json: @chirp
+        render :show
+    end
+
+    def new
+        render :new
     end
 
     def create
@@ -22,7 +27,7 @@ class ChirpsController < ApplicationController
 
         # need to add the below line so we can create a chirp 
         # (we'll first get an error without it)
-        @chirp.author = current_user # temporary fix until we have the notion of 
+        @chirp.author = User.last # temporary fix until we have the notion of 
         # a current_user. @chirp.author_id = User.first.id is equivalent
 
         if @chirp.save
@@ -37,7 +42,9 @@ class ChirpsController < ApplicationController
             # received from the failed save. We will also add a status code to 
             # our response.
             # debugger
-            render json: @chirp.errors.full_messages, status: 422
+            # render json: @chirp.errors.full_messages, status: 422
+            flash.now[:errors] = @chirp.errors.full_messages
+            render :new
         end
 
     end
