@@ -28,7 +28,7 @@ class ChirpsController < ApplicationController
         if @chirp.save
             # if it's successful, let's show the chirp (but to keep things DRY, 
             # use our show action)
-            debugger
+            # debugger
             redirect_to chirp_url(@chirp.id) # redirect initiates a 
             # whole new request! --> a `GET` request to the specified url
         else
@@ -36,7 +36,7 @@ class ChirpsController < ApplicationController
             # users, so we can use .errors.full_messages to grab the errors we 
             # received from the failed save. We will also add a status code to 
             # our response.
-            debugger
+            # debugger
             render json: @chirp.errors.full_messages, status: 422
         end
 

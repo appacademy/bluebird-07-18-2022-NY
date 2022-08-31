@@ -21,10 +21,23 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 # Used for generating a salted and hashed password_digest
 gem 'bcrypt'
 
+
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
   # gem "debug", platforms: %i[ mri mingw x64_mingw ]
   gem 'byebug'
+  gem 'rspec-rails' # the rails version of rspec
+  gem 'factory_bot_rails' # factory_bot allows us to automatically create models and place them into our test DB
+  gem 'rails-controller-testing' # Gives us some cool methods to help our testing
+end
+
+group :test do
+  gem 'faker' # Allows us to seed our DB with fake info really easily.  Faker is super useful for seeding mundane information.
+  gem 'capybara' # Specifically for integration testing #included in the default Gemfile but point it out to the students 
+
+  gem 'guard-rspec' # let's you auto-run specs when files are modified
+  gem 'launchy' # automatically opens the page in the browser when we use save_and_open_page
+  gem 'shoulda-matchers' # gives us some great one liner syntax for testing
 end
 
 group :development do
